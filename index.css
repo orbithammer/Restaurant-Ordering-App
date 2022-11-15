@@ -1,0 +1,253 @@
+body {
+    margin: 0 auto;
+    font-family: 'Smythe', cursive;
+    width: 600px;
+}
+
+header {
+    color: #fff;
+    background: url(./images/header.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 600px;
+    height: 167px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header-wrapper {
+    margin-left: 46px
+}
+
+.name {
+    font-size: 39px;
+    line-height: 24px;
+    margin: 0;
+}
+
+h3 {
+    font-size: 22px;
+    line-height: 14px;
+}
+
+.menu {
+        display: flex;
+        flex-direction: column;
+        padding: 22px 46px;
+}
+
+.menu--item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid #D2D2D2;
+    padding-top: 45px;
+    padding-bottom: 51px;
+}
+
+.menu--item-details {
+    flex-direction: column;
+}
+
+.menu--item-ingredients {
+    color: #888;
+    margin: 8px 0;
+}
+
+.menu--item-price {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0;
+}
+
+.menu--item-name, .order-item {
+    font-size: 28px;
+    line-height: 17px;
+    margin: 0;
+}
+
+.menu--add-btn {
+    margin: 0 0 0 auto;
+    width: 50px;
+    height: 50px;
+    color: #999;
+}
+
+.item-img {
+    font-size: 70px;
+    width: 70px;
+    margin: 0 31px 0 0;
+}
+
+.order {
+    padding: 0 46px;
+}
+
+.order--title {
+    display: block;
+    width: 100px;
+    margin: 20px auto 40px;
+    font-size: 28px;
+    line-height: 17px;
+}
+
+.remove-btn {
+    background: none;
+    font-size: 12px;
+    color: #888;
+    border: none;
+}
+
+.order--items {
+    border-bottom: 2px solid #393333;
+    justify-content: space-between;
+    padding-bottom: 31px;
+}
+
+.order-item {
+    margin-top: 22px;
+}
+
+.total-price {
+    font-size: 28px;
+    line-height: 24px;
+    margin: 14px 0 0 0;
+}
+
+.order--item-total, .total-bill {
+    float: right;
+    font-size: 20px;
+    line-height: 24px;
+}
+.ad-modal--order-btn {
+    align-self: flex-end;
+    margin: 30px 50px;
+    width: 100px;
+}
+.order-btn, .pay-btn, .ad-modal--order-btn {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    background: #16DB99;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    padding: 18px 0;
+}
+
+.order-btn {
+    width: 500px;
+    margin-top: 50px
+}
+
+.modal, .ad-modal {
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    display: none;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 524px;
+    height: 542px;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    filter: drop-shadow(5.18654px 5.18654px 255.437px rgba(0, 0, 0, 0.5));
+}
+
+.modal-container {
+    margin: 47px 24px 30px;
+    width: 475px;
+}
+
+.order-title {
+    text-align: center;
+}
+
+.credit-card-details {
+    margin: 34px 0;
+}
+
+.credit-card-input {
+    display: block;
+    width: 95%;
+    height: 72px;
+    background-color: #fff;
+    border-radius: 4px;
+    margin: 24px 0;
+    padding-left: 17px;
+}
+
+/* hide up/down arrows in number inputs */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.pay-btn {
+    width: 475px;
+}
+
+.message {
+    display: flex;
+    background: #ECFDF5;
+    width: 504px;
+    height: 120px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    /* padding: 10% 0; */
+}
+
+.message--text {
+    /* background: red; */
+    text-align: center;
+    color: #065F46;
+    font-size: 32px;
+}
+
+.ad-modal {
+    /* background: red; */
+    display: flex;
+    /* padding: 10px; */
+    justify-content: center;
+    align-items: center;
+}
+
+.ad-modal--img {
+    background-image: url(./images/ad.jpg);
+    height: 96%;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    width: 96.5%;
+    margin: 10px auto;    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 10px;
+    filter: drop-shadow(5.18654px 5.18654px 255.437px rgba(0, 0, 0, 0.5));
+    border-color: rgba(0,0,0,0.2);
+}
+
+.ad-modal--title {
+    font-size: 30px;
+    text-shadow: 0 0 10px black;
+    margin: 50px;
+}
+
+.ad-modal--copy {
+    margin: 0 50px;
+    text-shadow: 0 0 10px black;
+}

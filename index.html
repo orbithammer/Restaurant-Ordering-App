@@ -1,0 +1,42 @@
+<html>
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+       <link rel="stylesheet" href="index.css">
+       <!-- Font Awesome CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- Google Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+        </head>
+    <body>
+        <header>
+            <div class="header-wrapper">
+                <h1 class="name">Jimmy's Diner</h1>
+                <h3>The best burgers and pizzas in town.</h3>
+            </div>
+        </header>
+        <section class="menu" id="menu"></section>
+        <section class="order" id="order"></section>
+        <section class="message" id="message"></section>
+        <div class="modal" id="modal">
+            <div class="modal-container">
+                <h2 class="order-title">Enter card details</h2>
+                <form class="credit-card-details" id="credit-card-details">
+                    <input type="text" class="credit-card-input" placeholder="Enter your name" id="txt_cardNumber" name="creditCardName" required>
+                    <input type="number" class="credit-card-input" placeholder="Enter card number" id="txt_cardNumber" name="creditCardNumber" pattern="[0-9.]+" required>
+                    <input type="number" class="credit-card-input" placeholder="Enter CVV" name="creditCardCvv" pattern="\d{3}" required>
+                    <button class="pay-btn" type="submit">Pay</button>
+                </form>
+            </div>
+        </div>
+        <div class="ad-modal" id="ad-modal"> 
+            <div class="ad-modal--img">
+                <h2 class="ad-modal--title">Steal a meal deal!</h2>
+                <p class="ad-modal--copy">Get a meal deal so cheap, it's practically stealing. A burger, fries, and a beer for the low, low price of 29 bucks!</p>
+                <button class="ad-modal--order-btn" id="ad-modal--order-btn" data-add="3">Order</button>
+            </div>
+        </div>
+	<script src="index.js" type="module"></script>
+    </body>
+</html>
+
