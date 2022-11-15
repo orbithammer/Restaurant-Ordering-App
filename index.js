@@ -18,7 +18,7 @@ let isPaid = false;
 
 setTimeout(()=>{
     adModal.style.display = "inline"
-})
+}, 1500)
 
 document.addEventListener("click", e =>{
     if(e.target.dataset.add){
