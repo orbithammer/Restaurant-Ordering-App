@@ -201,6 +201,7 @@ input[type=number] {
 
 .message {
     display: flex;
+    flex-direction: column;
     background: #ECFDF5;
     width: 504px;
     height: 120px;
@@ -219,7 +220,7 @@ input[type=number] {
 
 .ad-modal {
     /* background: red; */
-    display: flex;
+    /* display: flex; */
     /* padding: 10px; */
     justify-content: center;
     align-items: center;
@@ -250,4 +251,30 @@ input[type=number] {
 .ad-modal--copy {
     margin: 0 50px;
     text-shadow: 0 0 10px black;
+}
+
+.stars {
+    display: flex;
+}
+
+.stars a {
+    opacity: 50%;
+    cursor: pointer;
+    padding: 1px;
+}
+
+.stars:hover a {
+    opacity: 100%;
+}
+
+.stars a:hover {
+    opacity: 100%;
+}
+
+.stars a:hover ~ a {
+    opacity: 50%;
+}
+
+.stars a.active {
+    opacity: 100%;
 }

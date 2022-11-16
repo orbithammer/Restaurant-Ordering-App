@@ -6,6 +6,7 @@ const creditCardDetails = document.getElementById("credit-card-details")
 const order = document.getElementById("order")
 const message = document.getElementById("message")
 
+
 let firstName = ""
 
 let orderObj = {
@@ -16,9 +17,9 @@ let orderObj = {
 }
 let isPaid = false;
 
-setTimeout(()=>{
+setTimeout(function(){
     adModal.style.display = "inline"
-}, 1500)
+}, 500)
 
 document.addEventListener("click", e =>{
     if(e.target.dataset.add){
@@ -32,6 +33,8 @@ document.addEventListener("click", e =>{
     }
     render()
 })
+
+
 
 creditCardDetails.addEventListener("submit", e=>{
     e.preventDefault()
@@ -82,8 +85,7 @@ function handleAddClick(itemId){
         orderObj.mealDeal = orderObj.mealDeal + 1
         closeAdModal()
     }
-    // console.log(`orderObj`,orderObj) 
-    order.scrollIntoView()
+
 }
 
 function handleRemoveClick(removeItem) {
@@ -181,27 +183,54 @@ function getOrderHtml(){
 }
 
 function render(){
+    // console.log(`values`, Object.values(orderObj))
     message.style.display = "none"
     document.getElementById("menu").innerHTML = getMenuHtml()
+    let hasOrder = false
+    for (let item in orderObj) {
+        if (orderObj[item] > 0) {
+            hasOrder = true
+            break
+        }
+    }
+    // console.log(`hasOrder`,hasOrder)
     if(isPaid) {
         order.style.display = "none"
         message.style.display = "flex"
         message.innerHTML = `
             <p class="message--text">Thanks, ${firstName}! Your order is on its way!</p>
+            <div class="stars">
+                <a>⭐</a>
+                <a>⭐</a>
+                <a>⭐</a>
+                <a>⭐</a>
+                <a>⭐</a>
+            </div>
             `
-    } else if(orderObj.pizza > 0 || orderObj.hamburger > 0 || orderObj.beer > 0 || orderObj.mealDeal > 0){
+        message.scrollTo()
+        
+        const starWrapper = document.querySelector(".stars")
+        const stars = document.querySelectorAll(".stars a")
+
+        stars.forEach((star, clickedIndex) => {
+            star.addEventListener("click", ()=> {
+                starWrapper.classList.add("disabled")
+                stars.forEach((otherStar, otherIndex) => {
+                    if(otherIndex <= clickedIndex) {
+                        otherStar.classList.add("active")
+                    }
+                })
+            console.log(`star ${clickedIndex+ 1 } clicked`)
+            })
+        })
+    } else if(hasOrder){
         order.innerHTML = getOrderHtml()
+        calculateOrder()
     } else {
         order.innerHTML = ``
     }
-    calculateOrder()
+    
 }
 
 render()
 
-// else if(orderObj.pizza > 0 || orderObj.hamburger > 0 || orderObj.beer > 0 || orderObj.mealDeal > 0){
-//         order.innerHTML = getOrderHtml()
-//     } else {
-//         order.innerHTML = ``
-//     }
-//     calculateOrder()

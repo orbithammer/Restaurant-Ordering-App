@@ -23,7 +23,7 @@ export const menuArray = [
         {
         name: "Meal Deal",
         ingredients: ["hamburger", "fries", "beer"],
-        price: 29,
+        price: 27,
         emoji: "🍽️",
         id: 3
     }
