@@ -6,9 +6,7 @@ const creditCardDetails = document.getElementById("credit-card-details")
 const order = document.getElementById("order")
 const message = document.getElementById("message")
 
-
 let firstName = ""
-
 let orderObj = {
     pizza: 0,
     hamburger: 0,
@@ -16,6 +14,8 @@ let orderObj = {
     mealDeal: 0
 }
 let isPaid = false;
+let isRated = false;
+let starRating = 0;
 
 setTimeout(function(){
     adModal.style.display = "inline"
@@ -24,10 +24,13 @@ setTimeout(function(){
 document.addEventListener("click", e =>{
     if(e.target.dataset.add){
         handleAddClick(e.target.dataset.add)
+        // render()
     } else if(e.target.dataset.remove) {
         handleRemoveClick(e.target.dataset.remove)
+        // render()
     } else if(e.target.id === "order-btn") {
         handleOrderClick()
+        // render()
     } else if(e.target){
         console.log(`e.target`,e.target)
     }
@@ -193,12 +196,35 @@ function render(){
             break
         }
     }
-    // console.log(`hasOrder`,hasOrder)
-    if(isPaid) {
+    if(isRated) {
+        console.log(`isRated`, isRated)
+        message.style.display = "flex"
+        message.innerHTML = `
+            <p class="message--text">Thanks, ${firstName}! Your order is on its way!</p>
+            <p class="message--subtext">Rate your experience.</p>
+            <div class="ratedStars">
+                <a>⭐</a>
+                <a>⭐</a>
+                <a>⭐</a>
+                <a>⭐</a>
+                <a>⭐</a>
+            </div>
+            `
+        const ratedStars = document.querySelectorAll(".ratedStars a")
+        console.log("ratedStars", ratedStars)
+        ratedStars.forEach((star, clickedIndex) => {
+            if (clickedIndex <= starRating) {
+                star.classList.add("active")
+                console.log(`star (rated)`,star)
+            }
+        })
+        // message.style.display = "flex"
+    } else if(isPaid) {
         order.style.display = "none"
         message.style.display = "flex"
         message.innerHTML = `
             <p class="message--text">Thanks, ${firstName}! Your order is on its way!</p>
+            <p class="message--subtext">Rate your experience.</p>
             <div class="stars">
                 <a>⭐</a>
                 <a>⭐</a>
@@ -209,18 +235,22 @@ function render(){
             `
         message.scrollTo()
         
-        const starWrapper = document.querySelector(".stars")
+        // const starWrapper = document.querySelector(".stars")
         const stars = document.querySelectorAll(".stars a")
-
+        // console.log(`starWrapper`, starWrapper)
         stars.forEach((star, clickedIndex) => {
             star.addEventListener("click", ()=> {
-                starWrapper.classList.add("disabled")
-                stars.forEach((otherStar, otherIndex) => {
-                    if(otherIndex <= clickedIndex) {
-                        otherStar.classList.add("active")
-                    }
-                })
+                isRated = true
+                // starWrapper.classList.add("disabled")
+                // console.log(`starWrapper(disabled)`, starWrapper)
+                // stars.forEach((otherStar, otherIndex) => {
+                //     if(otherIndex <= clickedIndex) {
+                //         otherStar.classList.add("active")
+                //     }
+                // })
             console.log(`star ${clickedIndex+ 1 } clicked`)
+            starRating = clickedIndex
+            console.log(`starRating`, starRating)
             })
         })
     } else if(hasOrder){

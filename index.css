@@ -211,11 +211,18 @@ input[type=number] {
     /* padding: 10% 0; */
 }
 
-.message--text {
-    /* background: red; */
+.message--text, .message--subtext {
     text-align: center;
     color: #065F46;
+    margin: 0 0 10px 0;
+}
+
+.message--text {
     font-size: 32px;
+}
+
+.message--subtext {
+    font-size: 12px;
 }
 
 .ad-modal {
@@ -258,9 +265,20 @@ input[type=number] {
 }
 
 .stars a {
-    opacity: 50%;
     cursor: pointer;
+}
+
+.stars a {
+    opacity: 50%;
     padding: 1px;
+    font-size: 20px;
+}
+
+.ratedStars a {
+    opacity: 50%;
+    font-size: 20px;
+    padding: none;
+    margin: 0;
 }
 
 .stars:hover a {
@@ -275,6 +293,10 @@ input[type=number] {
     opacity: 50%;
 }
 
-.stars a.active {
+.stars a.active, .ratedStars a.active {
     opacity: 100%;
 }
+
+/* .ratedStars a {
+    margin: 0;
+} */
